@@ -15,18 +15,16 @@ class SplashActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_splash)
 
-        // Gestionar los insets para pantalla completa
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        // Retrasar el inicio de MainActivity
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish() // Cierra SplashActivity
-        }, 3000) // Cambia 3000 por el tiempo de espera en milisegundos
+        }, 3000)
     }
 }
